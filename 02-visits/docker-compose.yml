@@ -1,0 +1,12 @@
+version: '3'
+services:
+  # This name is used inside node app  
+  redis-server:
+    image: 'redis'
+  node-app:
+    # Restart container on any exit code
+    restart: always
+    build: .
+    ports:
+      # Map 4001 on host to 8081 on container
+      - "4001:8081"
