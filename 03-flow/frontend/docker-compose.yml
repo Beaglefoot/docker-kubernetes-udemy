@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Bookmark node_modules which is absent by default
+      - /app/node_modules
+      # Map current dir outside of container to /app dir inside of container
+      - .:/app
+
+  # Instead of commented solution below the following
+  # command can be used for running tests.
+  # docker-compose exec web npm run test
+  #
+  # tests:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   volumes:
+  #     - /app/node_modules
+  #     - .:/app
+  #   command: ["npm", "run", "test"]

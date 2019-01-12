@@ -1,0 +1,14 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# Although dir mapping is done in docker-compose.yml file
+# and this one is unnecessary. There is no guarantee that
+# this won't change in future and Dockerfile won't be used
+# separately
+COPY . .
+
+CMD ["npm", "run", "start"]
