@@ -1,3 +1,4 @@
+// These are set up via docker-compose.yml
 module.exports = {
   redisHost: process.env.REDIS_HOST,
   redisPort: process.env.REDIS_PORT,
