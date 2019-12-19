@@ -1,3 +1,6 @@
 [submodule "03-flow/frontend"]
 	path = 03-flow/frontend
 	url = git@github.com:Beaglefoot/docker-frontend-udemy-subrepo.git
+[submodule "04-complex"]
+	path = 04-complex
+	url = git@github.com:Beaglefoot/docker-complex-udemy-subrepo.git
