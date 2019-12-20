@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort # For dev only
+  ports:
+    - port: 3050 # Port for another Pod to connect to
+      targetPort: 3000 # Port inside client Pod. The same as containerPort on Pod config
+      nodePort: 31515 # Port for connection from outside world (browser)
+  selector:
+    component: web # Pod has a label with this name

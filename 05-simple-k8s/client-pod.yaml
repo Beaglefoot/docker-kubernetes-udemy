@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web # node-port has a selector for this
+spec:
+  containers:
+    - name: client
+      image: beaglefoot/multi-client # Dockerhub image
+      ports:
+        - containerPort: 3000
