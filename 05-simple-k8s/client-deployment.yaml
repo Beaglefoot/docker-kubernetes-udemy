@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1 # Num of Pods
+  selector:
+    matchLabels:
+      component: web
+  template: # Defines conf for every pod in this deployment
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: beaglefoot/multi-client
+          ports:
+            - containerPort: 3000
